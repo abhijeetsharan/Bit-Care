@@ -30,7 +30,7 @@ const Navbar = () => {
         <NavLink to="/contact" className="nav-item">
           <li className="py-1">CONTACT</li>
         </NavLink>
-        <a href="https://bitcare-admin.vercel.app/" className='border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition'>Admin</a>
+        <a href="https://bit-care-admin.onrender.com" className='border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition'>Admin</a>
       </div>
 
       {/* Logo in the center */}
