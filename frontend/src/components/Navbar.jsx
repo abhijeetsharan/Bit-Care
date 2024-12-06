@@ -1,18 +1,18 @@
-import React, { useContext, useState } from 'react'
-import { assets } from '../assets/assets'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { AppContext } from '../context/AppContext'
+import React, { useContext, useState } from 'react';
+import { assets } from '../assets/assets';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
-  const navigate = useNavigate()
-  const [showMenu, setShowMenu] = useState(false)
-  const { token, setToken, userData } = useContext(AppContext)
+  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
+  const { token, setToken, userData } = useContext(AppContext);
 
   const logout = () => {
-    localStorage.removeItem('token')
-    setToken(false)
-    navigate('/login')
-  }
+    localStorage.removeItem('token');
+    setToken(false);
+    navigate('/login');
+  };
 
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-gray-300 bg-white shadow-md relative">
@@ -31,18 +31,18 @@ const Navbar = () => {
           <li className="py-1">CONTACT</li>
         </NavLink>
         <a href="https://bit-care-admin.onrender.com" className='border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition'>Admin</a>
+        <a
+          href="https://bit-care-admin.onrender.com/"
+          className="border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition hidden md:inline-block"
+        >
+          Admin
+        </a>
       </div>
 
       {/* Logo in the center */}
-      {/* <img
-        onClick={() => navigate('/')}
-        className="w-36 cursor-pointer transition-transform transform hover:scale-105 mx-auto"
-        src={assets.photo}
-        alt="Logo"
-      /> */}
-    <div className='mx-auto'>
-      <p className='font-bold text-2xl text-blue-800'>BIT CARE</p>
-    </div>
+      <div className="mx-auto">
+        <p className="font-bold text-2xl text-blue-800">BIT CARE</p>
+      </div>
 
       {/* Right Section (User Profile or Login) */}
       <div className="absolute right-0 flex items-center gap-4 mr-5">
@@ -52,9 +52,21 @@ const Navbar = () => {
             <img className="w-2.5" src={assets.dropdown_icon} alt="Dropdown Icon" />
             <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block">
               <div className="min-w-48 bg-gray-50 rounded shadow-lg flex flex-col gap-4 p-4">
-                <p onClick={() => navigate('/my-profile')} className="hover:text-black cursor-pointer">My Profile</p>
-                <p onClick={() => navigate('/my-appointments')} className="hover:text-black cursor-pointer">My Appointments</p>
-                <p onClick={logout} className="hover:text-black cursor-pointer">Logout</p>
+                <p onClick={() => navigate('/my-profile')} className="hover:text-black cursor-pointer">
+                  My Profile
+                </p>
+                <p onClick={() => navigate('/my-appointments')} className="hover:text-black cursor-pointer">
+                  My Appointments
+                </p>
+                <a
+                  href="https://bit-care-admin.onrender.com/"
+                  className="hover:text-black cursor-pointer"
+                >
+                  Admin
+                </a>
+                <p onClick={logout} className="hover:text-black cursor-pointer">
+                  Logout
+                </p>
               </div>
             </div>
           </div>
@@ -68,7 +80,12 @@ const Navbar = () => {
         )}
 
         {/* Mobile Menu Icon */}
-        <img onClick={() => setShowMenu(true)} className="w-6 md:hidden cursor-pointer" src={assets.menu_icon} alt="Menu" />
+        <img
+          onClick={() => setShowMenu(true)}
+          className="w-6 md:hidden cursor-pointer"
+          src={assets.menu_icon}
+          alt="Menu"
+        />
       </div>
 
       {/* Mobile Menu */}
@@ -77,7 +94,12 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between px-5 py-6">
           <img src={assets.logo} className="w-36" alt="Logo" />
-          <img onClick={() => setShowMenu(false)} src={assets.cross_icon} className="w-7 cursor-pointer" alt="Close Icon" />
+          <img
+            onClick={() => setShowMenu(false)}
+            src={assets.cross_icon}
+            className="w-7 cursor-pointer"
+            alt="Close Icon"
+          />
         </div>
         <ul className="flex flex-col items-center gap-4 mt-5 px-5 text-lg font-medium">
           <NavLink onClick={() => setShowMenu(false)} to="/" className="menu-item">
@@ -95,7 +117,7 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
