@@ -28,7 +28,7 @@ A MERN-stack application designed to enhance healthcare access for 5,000+ campus
    cd BIT-Care
 3. Install dependencies for both frontend and backend:
    ```bash
-   cd BIT-Care
+   npm install
 4. Start the development server:
    ```bash
    npm run server (Backend)
