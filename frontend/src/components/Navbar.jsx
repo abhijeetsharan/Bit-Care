@@ -1,4 +1,11 @@
 import React, { useContext, useState } from 'react';
+/**
+ * Navbar Component
+ * Updates:
+ * - Removed duplicate Admin navigation link.
+ * - Ensured flat design (no gradients).
+ * - Fixed active state styling for desktop and mobile.
+ */
 import { assets } from '../assets/assets';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
@@ -18,23 +25,23 @@ const Navbar = () => {
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-gray-300 bg-white shadow-md relative">
       {/* Left Navigation Items (for Desktop) */}
       <div className="absolute left-0 flex items-center gap-5 ml-5 hidden md:flex">
-        <NavLink to="/" className="nav-item">
+        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <li className="py-1">HOME</li>
+          <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
-        <NavLink to="/doctors" className="nav-item">
+        <NavLink to="/doctors" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <li className="py-1">ALL DOCTORS</li>
+          <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
-        <NavLink to="/about" className="nav-item">
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <li className="py-1">ABOUT</li>
+          <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
-        <NavLink to="/contact" className="nav-item">
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <li className="py-1">CONTACT</li>
+          <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
         </NavLink>
-        <a href="https://bit-care-admin.onrender.com" className='border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition'>Admin</a>
-        <a
-          href="https://bit-care-admin.onrender.com/"
-          className="border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition hidden md:inline-block"
-        >
+        <a href="https://bit-care-admin.onrender.com" className='border px-5 text-xs py-1.5 rounded-full font-bold text-gray-600 border-gray-600 hover:text-blue-800 transition'>
           Admin
         </a>
       </div>
@@ -102,16 +109,16 @@ const Navbar = () => {
           />
         </div>
         <ul className="flex flex-col items-center gap-4 mt-5 px-5 text-lg font-medium">
-          <NavLink onClick={() => setShowMenu(false)} to="/" className="menu-item">
+          <NavLink onClick={() => setShowMenu(false)} to="/" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
             <p className="px-4 py-2 rounded-full inline-block">HOME</p>
           </NavLink>
-          <NavLink onClick={() => setShowMenu(false)} to="/doctors" className="menu-item">
+          <NavLink onClick={() => setShowMenu(false)} to="/doctors" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
             <p className="px-4 py-2 rounded-full inline-block">ALL DOCTORS</p>
           </NavLink>
-          <NavLink onClick={() => setShowMenu(false)} to="/about" className="menu-item">
+          <NavLink onClick={() => setShowMenu(false)} to="/about" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
             <p className="px-4 py-2 rounded-full inline-block">ABOUT</p>
           </NavLink>
-          <NavLink onClick={() => setShowMenu(false)} to="/contact" className="menu-item">
+          <NavLink onClick={() => setShowMenu(false)} to="/contact" className={({ isActive }) => isActive ? 'menu-item active' : 'menu-item'}>
             <p className="px-4 py-2 rounded-full inline-block">CONTACT</p>
           </NavLink>
         </ul>
